@@ -4,17 +4,25 @@
 
 ## Try Thrum
 
-With **Python 3.10 or newer** installed, open a terminal in the Thrum folder
-and run these commands to try some fictional contacts:
+With **Python 3.10 or newer** installed, follow the
+[download instructions](../README.md#quickstart) to get and extract Thrum.
+Change into the project folder containing `README.md` and the `thrum/`
+directory, then run these commands to try some fictional contacts.
+This example assumes you extracted it to `~/Downloads/thrum-main`; adjust
+the path to match:
 
 ```sh
+cd ~/Downloads/thrum-main
 python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite init
 python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite demo
 python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite serve
 ```
 
 Open **http://127.0.0.1:8765/**. Stop Thrum with **Ctrl-C**.
-Next time, run only the last command.
+Next time, return to the same project folder and run only the last command.
+Run all commands in this guide from that folder. If Python reports
+`No module named thrum`, make sure you are not in `~/Downloads` or the inner
+`thrum/` directory. No package installation is required.
 
 ## Add your own contacts
 

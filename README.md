@@ -33,16 +33,30 @@ Read about the [privacy protections and their limits](docs/PRIVACY.md).
 
 ## Quickstart
 
-Install **Python 3.10 or newer**, download Thrum, and open a terminal in its folder.
-On macOS or Linux, run:
+1. Install **Python 3.10 or newer**.
+2. Open [Thrum on GitHub](https://github.com/SiliconScientist/thrum), select
+   **Code**, then **Download ZIP**, and save it in your Downloads folder.
+3. Extract the ZIP. On macOS, double-click it; on Windows, right-click it and
+   select **Extract All**. This creates a project folder, usually `thrum-main`,
+   containing this `README.md` and the `thrum/` directory. No Git installation
+   or GitHub account is needed for a public repository download.
+
+Open a terminal and run the following on macOS or Linux. Adjust the `cd` path
+if you extracted the project elsewhere or its folder has a different name:
 
 ```sh
+cd ~/Downloads/thrum-main
 python3 -m thrum init
 python3 -m thrum serve
 ```
 
 Open **http://127.0.0.1:8765/** and select **Add contact**.
-Stop with **Ctrl-C**; next time, run just `python3 -m thrum serve`.
+Stop with **Ctrl-C**; next time, return to the same project folder and run
+`python3 -m thrum serve`.
+
+If you see `No module named thrum`, check your current folder: these commands
+run from the project folder, not its parent (such as `~/Downloads`) or the
+inner `thrum/` directory. No package installation is required.
 
 Prefer to explore first? [Try the fictional demo](docs/USAGE.md#try-thrum).
 See the [user guide](docs/USAGE.md) for more help and Windows notes.
