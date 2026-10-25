@@ -24,12 +24,12 @@ def main(argv=None):
     commands.add_parser('init',help='Initialize a private database or apply numbered migrations')
     commands.add_parser('demo',help='Load fictional examples into an empty database')
     serve=commands.add_parser('serve',help='Open the local browser dashboard')
-    serve.add_argument('--port',type=int,default=8765)
+    serve.add_argument('--port',type=int,help='Use a fixed port (default: 8765, or a free port if busy)')
     commands.add_parser('check',help='Check database and foreign-key integrity')
     for command in ('export','import','backup'):
         p=commands.add_parser(command);p.add_argument('file',type=Path)
     args=parser.parse_args(argv)
-    if args.command=='serve' and not 1<=args.port<=65535: parser.error('Port must be between 1 and 65535.')
+    if args.command=='serve' and args.port is not None and not 1<=args.port<=65535: parser.error('Port must be between 1 and 65535.')
     try:
         if args.command in ('serve','export','backup','check') and not args.db.expanduser().exists():
             raise ValueError('Database not found. Run init first.')

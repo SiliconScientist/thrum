@@ -18,7 +18,8 @@ python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite demo
 python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite serve
 ```
 
-Open **http://127.0.0.1:8765/**. Stop Thrum with **Ctrl-C**.
+Open the URL printed in your terminal (usually **http://127.0.0.1:8765/**).
+If that port is busy, Thrum automatically uses a free port. Stop Thrum with **Ctrl-C**.
 Next time, return to the same project folder and run only the last command.
 Run all commands in this guide from that folder. If Python reports
 `No module named thrum`, make sure you are not in `~/Downloads` or the inner
@@ -33,7 +34,7 @@ python3 -m thrum init
 python3 -m thrum serve
 ```
 
-Open **http://127.0.0.1:8765/** and select **Add contact**.
+Open the URL printed in your terminal and select **Add contact**.
 Your contacts are kept separate from the demo. Next time, run only
 `python3 -m thrum serve`.
 
@@ -110,7 +111,10 @@ The commands above are for macOS and Linux. On Windows, use `py -3` instead of
 `python3` and replace `~` paths with absolute paths in your user profile, outside
 the project folder. Windows has not been tested for this release.
 
-- **Different port:** append `--port 8766` to `serve`, then open the printed address.
+- **Automatic port:** `serve` tries port 8765, then uses a free port if it is busy.
+  Always open the printed address; the port may change between runs.
+- **Fixed port:** append `--port 8766` to `serve`. If that port is busy, Thrum
+  reports the conflict and exits. Omit `--port` to choose a free port automatically.
 - **Different database:** put `--db PATH` before the command, as in the demo.
 - **Demo already loaded:** run only its `serve` command. `demo` requires an empty database.
 - **Storage or permission errors:** see [Storage and permissions](PRIVACY.md#storage-and-permissions).

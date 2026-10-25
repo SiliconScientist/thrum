@@ -54,7 +54,8 @@ python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite demo
 python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite serve
 ```
 
-Open **http://127.0.0.1:8765/** to explore. Stop with **Ctrl-C**.
+Open the URL printed in your terminal to explore (usually **http://127.0.0.1:8765/**).
+If that port is busy, Thrum automatically uses a free port. Stop with **Ctrl-C**.
 Next time, return to the same project folder and run only the last command.
 
 ### Add your own contacts
@@ -67,7 +68,7 @@ python3 -m thrum init
 python3 -m thrum serve
 ```
 
-Open **http://127.0.0.1:8765/** and select **Add contact**.
+Open the URL printed in your terminal and select **Add contact**.
 Stop with **Ctrl-C**; next time, return to the same project folder and run
 `python3 -m thrum serve`.
 

@@ -1,6 +1,7 @@
 """Loopback-only HTTP UI, intended for one trusted device account."""
 from contextlib import closing
 import csv
+import errno
 import io
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -148,9 +149,16 @@ class Handler(BaseHTTPRequestHandler):
         except (sqlite3.Error,OSError): self.send_error(503)
 
 
-def create_server(path, port=8765):
+def create_server(path, port=None):
     with closing(Store(path)) as store: db_path=store.path
-    server=Server(('127.0.0.1',port),Handler)
+    try:
+        server=Server(('127.0.0.1',8765 if port is None else port),Handler)
+    except OSError as error:
+        if error.errno != errno.EADDRINUSE: raise
+        if port is not None:
+            raise ValueError(f'Port {port} is already in use. Omit --port to choose a free port automatically.') from None
+        # Let the OS choose and bind a free port atomically; do not probe first.
+        server=Server(('127.0.0.1',0),Handler)
     server.db_path=db_path
     server.csrf=secrets.token_urlsafe(32)
     return server
