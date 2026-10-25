@@ -13,9 +13,9 @@ the path to match:
 
 ```sh
 cd ~/Downloads/thrum-main
-python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite init
-python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite demo
-python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite serve
+python3 -m thrum --db ~/.local/share/thrum-repair-cafe/people.sqlite init
+python3 -m thrum --db ~/.local/share/thrum-repair-cafe/people.sqlite demo
+python3 -m thrum --db ~/.local/share/thrum-repair-cafe/people.sqlite serve
 ```
 
 Open the URL printed in your terminal (usually **http://127.0.0.1:8765/**).
@@ -38,9 +38,9 @@ Four volunteers connect a workshop, library, and neighborhood group:
 - Filter by the `volunteer` tag to find helpers, or search `sewing` to find
   Samira Patel and her availability notes.
 
-Already loaded an older demo? Existing databases are not replaced. To explore
-the new example, repeat the three demo commands above with a fresh `--db` path,
-such as `~/.local/share/thrum-repair-cafe/people.sqlite`, in all three commands.
+The commands above use a separate repair café database, so an older demo in
+`~/.local/share/thrum-demo/people.sqlite` stays untouched. If you have already
+loaded the repair café, run only its `serve` command.
 
 ## Add your own contacts
 

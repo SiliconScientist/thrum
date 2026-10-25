@@ -51,9 +51,9 @@ if you extracted the project elsewhere or its folder has a different name:
 
 ```sh
 cd ~/Downloads/thrum-main
-python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite init
-python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite demo
-python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite serve
+python3 -m thrum --db ~/.local/share/thrum-repair-cafe/people.sqlite init
+python3 -m thrum --db ~/.local/share/thrum-repair-cafe/people.sqlite demo
+python3 -m thrum --db ~/.local/share/thrum-repair-cafe/people.sqlite serve
 ```
 
 Open the URL printed in your terminal to explore (usually **http://127.0.0.1:8765/**).
