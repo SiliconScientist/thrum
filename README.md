@@ -1,7 +1,5 @@
 # Thrum
 
-A little help staying in touch.
-
 Thrum is a private, local-first relationship manager for remembering the people
 and communities in your life. Keep contact details together, save the context
 that matters, and see how people and organizations connect—all in a browser
