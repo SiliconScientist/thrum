@@ -41,11 +41,28 @@ Read about the [privacy protections and their limits](docs/PRIVACY.md).
    containing this `README.md` and the `thrum/` directory. No Git installation
    or GitHub account is needed for a public repository download.
 
-Open a terminal and run the following on macOS or Linux. Adjust the `cd` path
+### Try the fictional demo
+
+Explore Thrum with fictional contacts first. Open a terminal and run the
+following on macOS or Linux. Adjust the `cd` path
 if you extracted the project elsewhere or its folder has a different name:
 
 ```sh
 cd ~/Downloads/thrum-main
+python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite init
+python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite demo
+python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite serve
+```
+
+Open **http://127.0.0.1:8765/** to explore. Stop with **Ctrl-C**.
+Next time, return to the same project folder and run only the last command.
+
+### Add your own contacts
+
+Stop the demo with **Ctrl-C**, then run these commands from the same project
+folder to start your own database, kept separate from the fictional contacts:
+
+```sh
 python3 -m thrum init
 python3 -m thrum serve
 ```
@@ -58,7 +75,6 @@ If you see `No module named thrum`, check your current folder: these commands
 run from the project folder, not its parent (such as `~/Downloads`) or the
 inner `thrum/` directory. No package installation is required.
 
-Prefer to explore first? [Try the fictional demo](docs/USAGE.md#try-thrum).
 See the [user guide](docs/USAGE.md) for more help and Windows notes.
 
 ## Learn more
