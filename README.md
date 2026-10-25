@@ -43,7 +43,9 @@ Read about the [privacy protections and their limits](docs/PRIVACY.md).
 
 ### Try the fictional demo
 
-Explore Thrum with fictional contacts first. Open a terminal and run the
+Explore a fictional neighborhood repair café: meet its volunteers, find their
+skills, and follow connections between a workshop, library, and community group.
+Open a terminal and run the
 following on macOS or Linux. Adjust the `cd` path
 if you extracted the project elsewhere or its folder has a different name:
 
@@ -57,6 +59,7 @@ python3 -m thrum --db ~/.local/share/thrum-demo/people.sqlite serve
 Open the URL printed in your terminal to explore (usually **http://127.0.0.1:8765/**).
 If that port is busy, Thrum automatically uses a free port. Stop with **Ctrl-C**.
 Next time, return to the same project folder and run only the last command.
+See the [demo walkthrough](docs/USAGE.md#explore-the-repair-café) for things to try.
 
 ### Add your own contacts
 

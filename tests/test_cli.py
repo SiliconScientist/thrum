@@ -30,7 +30,16 @@ class CLITests(unittest.TestCase):
             r=self.run_cli(*args);self.assertEqual(r.returncode,0,r.stderr)
         export=self.root/'export.json';backup=self.root/'backup.sqlite'
         self.assertEqual(self.run_cli('export',str(export)).returncode,0)
-        data=json.loads(export.read_text());self.assertEqual(len(data['contacts']),4);self.assertEqual(len(data['relationships']),3)
+        data=json.loads(export.read_text())
+        contacts={contact['name']:contact for contact in data['contacts']}
+        self.assertIn('Mira Chen',contacts)
+        self.assertIn('bikes',contacts['Mira Chen']['tags'])
+        self.assertGreaterEqual(len(contacts['Mira Chen']['methods']),2)
+        self.assertEqual(contacts['Maple Library']['kind'],'organization')
+        self.assertTrue(any(edge['source']==contacts['Mira Chen']['id']
+                            and edge['target']==contacts['Maple Library']['id']
+                            and edge['type']=='volunteers with'
+                            for edge in data['relationships']))
         self.assertEqual(self.run_cli('backup',str(backup)).returncode,0)
         self.assertEqual(self.run_cli('check',db=backup).returncode,0)
         restored=self.root/'restored.sqlite'

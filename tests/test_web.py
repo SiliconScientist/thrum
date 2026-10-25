@@ -131,11 +131,11 @@ class WebTests(unittest.TestCase):
             self.assertEqual(updated['tags'],c['tags']);self.assertEqual(updated['methods'],c['methods'])
 
     def test_duplicate_names_have_distinct_relationship_labels(self):
-        from thrum.demo import seed
         import html
         demo_path=Path(self.tmp.name).resolve()/'demo.sqlite'
         with contextlib.closing(Store(demo_path)) as store:
-            seed(store)
+            for affiliation in ('Lantern Workshop','Imaginary Observatory'):
+                store.save_contact(dict(name='Mira Example',kind='person',affiliation=affiliation))
             from thrum.views import relationship_form
             page=relationship_form('test-token',store.list_contacts())
         labels=re.findall(r'<option value="[^"]*">([^<]*Mira Example[^<]*)</option>',page)

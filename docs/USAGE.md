@@ -25,6 +25,23 @@ Run all commands in this guide from that folder. If Python reports
 `No module named thrum`, make sure you are not in `~/Downloads` or the inner
 `thrum/` directory. No package installation is required.
 
+### Explore the repair café
+
+All people, organizations, and contact details in this demo are fictional.
+Four volunteers connect a workshop, library, and neighborhood group:
+
+- Search for `bikes` to find Mira Chen. Open her contact to see workshop and
+  personal email addresses, plus a reminder to ask about spare inner tubes.
+- Open Maple Library to see who works there, who volunteers there, and which
+  neighborhood group partners with it.
+- Follow the introductions from Rowan Ellis to Mira, then from Mira to Theo Brooks.
+- Filter by the `volunteer` tag to find helpers, or search `sewing` to find
+  Samira Patel and her availability notes.
+
+Already loaded an older demo? Existing databases are not replaced. To explore
+the new example, repeat the three demo commands above with a fresh `--db` path,
+such as `~/.local/share/thrum-repair-cafe/people.sqlite`, in all three commands.
+
 ## Add your own contacts
 
 Stop the demo, then run:
